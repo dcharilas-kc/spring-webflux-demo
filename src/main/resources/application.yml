@@ -1,0 +1,10 @@
+spring:
+  data:
+    mongodb:
+      host: ${MONGO_HOST:127.0.0.1}
+      port: 27017
+      database: "members_store"
+      username: ${MONGO_USERNAME:root}
+      password: ${MONGO_PASSWORD:root}
+      authenticationDatabase: "admin"
+      auto-index-creation: true
