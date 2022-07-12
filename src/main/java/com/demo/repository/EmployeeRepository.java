@@ -38,6 +38,7 @@ public class EmployeeRepository {
     public Mono<Employee> updateEmployee(Employee employee) {
         Employee existingEmployee = EMPLOYEE_DATA.get(employee.getId());
         if (existingEmployee != null) {
+            existingEmployee.setRandomNumber(employee.getRandomNumber());
             existingEmployee.setName(employee.getName());
         }
         return Mono.just(existingEmployee);
