@@ -2,6 +2,7 @@ package com.demo.controller;
 
 import com.demo.client.RestTemplateClient;
 import com.demo.client.WebFluxClient;
+import com.demo.exception.BoomException;
 import com.demo.model.Employee;
 import com.demo.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
@@ -31,4 +32,8 @@ public class ClientController {
         return Mono.just(restTemplateClient.callSlowService());
     }
 
+    @GetMapping("/boom")
+    private Mono<String> boom() throws Exception {
+        throw new BoomException("KABOOM!");
+    }
 }
